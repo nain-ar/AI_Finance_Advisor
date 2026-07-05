@@ -1,0 +1,16 @@
+streamlit
+opencv-python
+numpy
+pandas
+matplotlib
+plotly
+scikit-learn
+joblib
+pillow
+easyocr
+google-generativeai
+bcrypt
+openpyxl
+fpdf
+requests
+python-dotenv
