@@ -1,97 +1,125 @@
 import streamlit as st
-import os
-import sys
 
-# print("Current Working Directory:")
-# print(os.getcwd())
 
-# print("\nPython Path:")
-# for p in sys.path:
-#     print(p)
+# Initialize session state
+if "logged_in" not in st.session_state:
+    st.session_state["logged_in"] = False
+
+if "user_name" not in st.session_state:
+    st.session_state["user_name"] = ""
+
+if "user_id" not in st.session_state:
+    st.session_state["user_id"] = None
 
 # ======================================
 # Page Configuration
 # ======================================
+
 st.set_page_config(
     page_title="AI Finance Advisor",
     page_icon="💰",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
 
 # ======================================
-# Sidebar
+# Hide Streamlit UI
 # ======================================
-st.sidebar.title("💰 AI Finance Advisor")
 
-st.sidebar.markdown("---")
+st.markdown("""
+<style>
 
-st.sidebar.success("Welcome!")
+[data-testid="stSidebar"]{
+    display:none;
+}
 
-st.sidebar.info(
-    """
-    Navigate using the pages menu.
+#MainMenu{
+    visibility:hidden;
+}
 
-    Features:
-    - Dashboard
-    - Expense Manager
-    - Budget Planner
-    - Investment Calculator
-    - Loan Prediction
-    - Receipt Scanner
-    - AI Advisor
-    """
-)
+header{
+    visibility:hidden;
+}
+
+footer{
+    visibility:hidden;
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 # ======================================
-# Main Page
+# Session State
 # ======================================
-st.title("💰 AI Finance Advisor")
 
-st.markdown("## Welcome!")
+if "page" not in st.session_state:
+    st.session_state.page = "welcome"
 
-st.write("""
-Welcome to **AI Finance Advisor**.
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
 
-This application helps you:
+if "username" not in st.session_state:
+    st.session_state.username = ""
 
-✅ Track your expenses
+# ======================================
+# Navigation
+# ======================================
 
-✅ Manage your monthly budget
+page = st.session_state.page
 
-✅ Calculate investments
+if page == "welcome":
 
-✅ Predict loan approval
+    from pages.welcome import show_welcome
+    show_welcome()
 
-✅ Scan receipts using OpenCV
+elif page == "login":
 
-✅ Get AI-powered financial suggestions
-""")
+    from pages.login import show_login
+    show_login()
 
-st.markdown("---")
+elif page == "dashboard":
 
-col1, col2, col3 = st.columns(3)
+    if st.session_state.logged_in:
 
-with col1:
-    st.metric("Expenses Managed", "0")
+        from pages.dashboard import show_dashboard
+        show_dashboard()
 
-with col2:
-    st.metric("Savings", "₹0")
+    else:
 
-with col3:
-    st.metric("Health Score", "0/100")
+        st.session_state.page = "login"
+        st.rerun()
 
-st.markdown("---")
+elif page == "expense_manager":
 
-# st.subheader("🚀 Upcoming Features")
+    from pages.expense_manager import show_expense_manager
+    show_expense_manager()
 
-# st.write("""
-# - Expense Tracker
-# - Budget Planner
-# - Investment Calculator
-# - Loan Prediction (Machine Learning)
-# - Receipt Scanner (OpenCV + OCR)
-# - Financial Health Score
-# - AI Chatbot
-# """)
+elif page == "ai_advisor":
 
-# st.success("Project initialized successfully! 🎉")
+    from pages.ai_advisor import show_ai_advisor
+    show_ai_advisor()
+
+elif page == "loan_prediction":
+
+    from pages.loan_predictor import show_loan_predictor
+    show_loan_predictor()
+
+elif page == "budget_planner":
+
+    from pages.budget_planner import show_budget_planner
+    show_budget_planner()
+
+elif page == "investment":
+
+    from pages.investment import show_investment
+    show_investment()
+
+elif page == "receipt_scanner":
+
+    from pages.receipts_scanner import show_receipt_scanner
+    show_receipt_scanner()
+
+else:
+
+    st.session_state.page = "welcome"
+    st.rerun()

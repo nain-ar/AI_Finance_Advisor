@@ -12,7 +12,7 @@ class Authentication:
     # Register
     # =====================================
 
-    def register(self, username, password):
+    def register(self, username, password, created_date):
 
         if self.db.username_exists(username):
             return False
@@ -24,9 +24,9 @@ class Authentication:
 
         return self.db.register_user(
             username,
-            hashed_password.decode()
+            hashed_password.decode(),
+            created_date
         )
-
     # =====================================
     # Login
     # =====================================

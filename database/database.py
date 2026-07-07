@@ -23,11 +23,11 @@ class FinanceDatabase:
         CREATE TABLE IF NOT EXISTS users(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
-            password TEXT NOT NULL
+            password TEXT NOT NULL,
+            created_date TEXT NOT NULL
         )
         """)
         self.connection.commit()
-
     # ==========================================
     # Create Expenses Table
     # ==========================================
@@ -48,14 +48,20 @@ class FinanceDatabase:
     # ==========================================
     # Register User
     # ==========================================
-    def register_user(self, username, password):
+    def register_user(self, username, password, created_date):
         try:
+
             self.cursor.execute("""
-            INSERT INTO users(username, password)
-            VALUES (?, ?)
-            """, (username, password))
+            INSERT INTO users(username, password, created_date)
+            VALUES (?, ?, ?)
+            """, (
+                username,
+                password,
+                created_date
+            ))
 
             self.connection.commit()
+
             return True
 
         except sqlite3.IntegrityError:
