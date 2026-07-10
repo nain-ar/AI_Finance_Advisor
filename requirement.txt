@@ -1,5 +1,5 @@
 streamlit
-opencv-python
+opencv-python-headless
 numpy
 pandas
 matplotlib
@@ -9,7 +9,7 @@ joblib
 pillow
 easyocr
 google-generativeai
-bcrypt
+bcrypt==4.1.3
 openpyxl
 fpdf
 requests
