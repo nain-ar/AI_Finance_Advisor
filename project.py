@@ -58,8 +58,8 @@ if "page" not in st.session_state:
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 
-if "username" not in st.session_state:
-    st.session_state.username = ""
+if "user_name" not in st.session_state:
+    st.session_state["user_name"] = ""
 
 # ======================================
 # Navigation
@@ -99,11 +99,19 @@ elif page == "ai_advisor":
     from pages.ai_advisor import show_ai_advisor
     show_ai_advisor()
 
+# elif page == "loan_prediction":
+#     st.write("Reached Loan Predictor")
+#     from pages.loan_predictor import show_loan_predictor
+#     show_loan_predictor()
 elif page == "loan_prediction":
+    st.write("Reached Loan Predictor")
 
-    from pages.loan_predictor import show_loan_predictor
-    show_loan_predictor()
-
+    try:
+        from pages.loan_predictor import show_loan_predictor
+        show_loan_predictor()
+    except Exception as e:
+        st.exception(e)
+    
 elif page == "budget_planner":
 
     from pages.budget_planner import show_budget_planner

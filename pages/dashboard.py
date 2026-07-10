@@ -186,7 +186,7 @@ hr{
 
     with c4:
         st.metric(
-            "❤️ Health Score",
+            " Health Score",
             f"{health_score}/100"
         )
 
@@ -467,7 +467,7 @@ where your money goes and improves financial planning.
     with c2:
 
         if st.button(
-            "🚪 Logout",
+            " Logout",
             use_container_width=True,
             type="primary"
         ):

@@ -78,7 +78,7 @@ div[data-testid="stMetric"]{
 }
 
 .stButton>button:hover{
-    background:#388E3C;
+    background:#50C878;
 }
 
 /* Text Input */
@@ -150,7 +150,7 @@ textarea{
 
     div[data-testid="stForm"]{
 
-        background:#111827;
+        background:#A2AE9D;
 
         border:1px solid #334155;
 
@@ -166,7 +166,7 @@ textarea{
 
         text-align:center;
 
-        color:#CBD5E1;
+        color:#898989;
 
         padding-top:15px;
 

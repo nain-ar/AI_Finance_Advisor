@@ -18,14 +18,15 @@ def show_budget_planner():
 
     USER_ID = st.session_state["user_id"]
 
-    # ======================================
-    # CSS
-    # ======================================
+
+     # ======================================
+     # CSS
+     # ======================================
 
     st.markdown("""
     <style>
 
-    <style>
+    
 
 .stApp{
     background: #A8DCAB;
@@ -113,19 +114,20 @@ textarea{
 </style>
     """, unsafe_allow_html=True)
 
-    # ======================================
-    # Header
-    # ======================================
+#     # ======================================
+#     # Header
+#     # ======================================
 
-    st.markdown(
-        '<div class="title">💰 Budget Planner</div>',
-        unsafe_allow_html=True
-    )
+#     st.markdown(
+#         '<div class="title">💰 Budget Planner</div>',
+#         unsafe_allow_html=True
+#     )
 
-    st.markdown(
-        f'<div class="subtitle">Welcome, <b>{st.session_state.username}</b></div>',
-        unsafe_allow_html=True
-    )
+#     st.markdown(
+#         f'<div class="subtitle">Welcome, <b>{st.session_state.username}</b></div>',
+#         unsafe_allow_html=True
+#     )
+
 
     # ======================================
     # Navigation

@@ -4,70 +4,159 @@ import streamlit as st
 def show_welcome():
 
     st.markdown("""
-    <style>
+<style>
 
-    .hero{
-        background: linear-gradient(#4A4A4A);
-        padding:45px;
-        border-radius:25px;
-        text-align:center;
-        color:white;
-        box-shadow:0 15px 35px rgba(0,0,0,.35);
-        margin-bottom:35px;
-    }
+/* ======================================
+Main Background
+====================================== */
 
-    .hero h1{
-        font-size:55px;
-        margin-bottom:10px;
-        font-weight:800;
-    }
+.stApp{
+    background: linear-gradient(135deg,#F8FAFC,#EEF4FF);
+}
 
-    .hero h3{
-        color:#CBCBCB;
-        font-weight:400;
-        margin-bottom:25px;
-    }
+/* ======================================
+Hero Section
+====================================== */
 
-    .card{
-        background:#BAC095;
-        border:1px solid #334155;
-        border-radius:20px;
-        padding:30px;
-        text-align:center;
-        color:black;
-        height:170px;
-    }
+.hero{
+    background:linear-gradient(135deg,#1E40AF,#2563EB);
+    border-radius:22px;
+    padding:40px 50px;
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
+    box-shadow:0 10px 30px rgba(37,99,235,.25);
+}
 
-    .icon{
-        font-size:42px;
-        margin-bottom:15px;
-    }
+.hero h1{
+    color:white;
+    font-size:52px;
+    font-weight:800;
+    margin:0;
+}
 
-    .title{
-        font-size:22px;
-        font-weight:bold;
-    }
+.hero h3{
+    color:#E0E7FF;
+    font-size:22px;
+    margin-top:10px;
+}
 
-    </style>
-    """, unsafe_allow_html=True)
+.hero p{
+    color:#F8FAFC;
+    font-size:18px;
+    max-width:850px;
+    margin:20px auto 0;
+    line-height:1.7;
+}
 
-    # ---------------- Hero ---------------- #
 
+/* ======================================
+Feature Cards
+====================================== */
+
+.card{
+    background:#FFFFFF;
+    border-radius:18px;
+    border:1px solid #E5E7EB;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+    padding:25px 20px;
+
+    min-height:170px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 25px rgba(37,99,235,.15);
+}
+
+.icon{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.title{
+    font-size:24px;
+    font-weight:700;
+    color:#1E3A8A;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:16px;
+    color:#64748B;
+    margin:0;
+    line-height:1.5;
+}
+/* ======================================
+Buttons
+====================================== */
+
+.stButton>button{
+    width:100%;
+    height:55px;
+    border-radius:14px;
+    border:none;
+    background:linear-gradient(90deg,#2563EB,#3B82F6);
+    color:white;
+    font-size:18px;
+    font-weight:700;
+    transition:all .3s;
+}
+
+.stButton>button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 25px rgba(37,99,235,.35);
+}
+
+/* ======================================
+Divider
+====================================== */
+
+hr{
+    border:1px solid #E2E8F0;
+}
+
+/* ======================================
+Hide Streamlit Extras
+====================================== */
+
+#MainMenu{
+    visibility:hidden;
+}
+
+header{
+    visibility:hidden;
+}
+
+footer{
+    visibility:hidden;
+}
+
+</style>
+""", unsafe_allow_html=True)
     st.markdown("""
-    <div class="hero">
+<div class="hero">
 
-    <h1> AI Finance Advisor</h1>
+<h1> AI Finance Advisor</h1>
 
-    <h3>Smart • Secure • Personalized</h3>
+<h3>Smart • Secure • Personalized</h3>
 
-    <p style="font-size:20px;">
-    Manage your finances with Artificial Intelligence.
-    Budget smarter, track expenses, predict loans and receive AI-powered financial advice.
-    </p>
+<p>
+Manage your finances with Artificial Intelligence.
 
-    </div>
-    """, unsafe_allow_html=True)
+</p>
 
+</div>
+""", unsafe_allow_html=True)
     # ---------------- Feature Cards ---------------- #
 
     col1, col2, col3 = st.columns(3)
@@ -84,9 +173,9 @@ def show_welcome():
     with col2:
         st.markdown("""
         <div class="card">
-       
-        <div class="title">Budget Planner</div>
-        Plan monthly budgets
+            <div class="icon">💵</div>
+            <div class="title">Budget Planner</div>
+            <p>Plan monthly budgets</p>
         </div>
         """, unsafe_allow_html=True)
 
