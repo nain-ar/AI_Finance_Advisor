@@ -1,0 +1,59 @@
+__pycache__/
+*.pyc
+
+.venv/
+venv/
+
+finance.db
+
+outputs/
+
+uploads/
+
+model/
+
+.idea/
+
+.vscode/
+output/
+.DS_Store
+.env
+assets/
+reports/
+utils/
+# Environment variables (API keys)
+.env
+.env.local
+.env.*
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build folders
+dist/
+build/
+
+
+
+
+# Database (if it contains user data)
+*.db
+*.sqlite3
+
